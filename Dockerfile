@@ -1,7 +1,5 @@
-FROM node:14
+FROM openjdk:17-jdk-alpine
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 3000
-CMD ["node", "App.js"]
+COPY app.java .
+RUN javac app.java
+CMD ["java", "app"]
